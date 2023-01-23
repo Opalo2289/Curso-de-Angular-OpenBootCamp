@@ -309,9 +309,17 @@
     alt="Angular Logo"
     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
   />
-  <span>Primera App de Angular: {{ title }}</span>
+  <span>Primera App de Angular: {{ title }}</span> <!--BAINIG UNIDIRECCIONAL-->
 </div>
   
 <div class="content" role="main">
-  <h1>!Hola, {{ nombre }}¡</h1>
+  <!--<h1>!Hola, {{ nombre }}¡</h1>-->
+
+
+  <!--input para trabajar con ngModel (para cuando quiera que lo que se modifique en el controlados osea en el ts, tambien se modifique en la vista osea en el html)-->
+<input type="text" placeholder="Nombre de usurario" [(ngModel)]="usuario"/> <!-- DOUBLE BAINING asocia un evento de cambio con una propiedad concreta 
+  (el error tipico se da porque posiblemente hace falta importar algun componente: el error de los corchetes de osea el [(ngModel)] 
+  soluciona importando el formModule dentro del app.module. y lo que esta dentro de comillas ctrl+espacio y si no, buscas el atributo en el app.components )-->
+  
+  <app-saludo [nombre]="usuario"></app-saludo> <!--aqui se pinta el components saludo.components.html [se utilizan parentecis para eventos, y comillas para atributos]-->
 </div>

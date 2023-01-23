@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'HolaMundo';
-  nombre = 'Guedys'
+  usuario = '@Enrique'  //el ts es el componente padre por lo tanto
 }
