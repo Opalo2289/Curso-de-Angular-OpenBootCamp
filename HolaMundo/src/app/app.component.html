@@ -322,6 +322,6 @@
   soluciona importando el formModule dentro del app.module. y lo que esta dentro de comillas ctrl+espacio y si no, buscas el atributo en el app.components )-->
   
   <app-saludo [nombre]="usuario" (mensajeEmiter)="recibirMensajeDelHijo($event)"></app-saludo>
-  <app-saludo (mensajeEmiter)="recibirMensajeDelHijo($event)"></app-saludo> <!--aqui se pinta el components saludo.components.html [se utilizan parentecis para eventos, y comillas para atributos]
+  <!--<app-saludo (mensajeEmiter)="recibirMensajeDelHijo($event)"></app-saludo> aqui se pinta el components saludo.components.html [se utilizan parentecis para eventos, y comillas para atributos]
   la explicacion del orden se encuentra en el vide OpenBootCamp en el min -21:04-->
 </div>
