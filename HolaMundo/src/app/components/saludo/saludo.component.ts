@@ -41,7 +41,7 @@ myStyle: object = {
   
 
   /*aqui se ve en que consiste los metodos, y esto es lo que desencadena los eventos. 
-  en este casovamos a hacer un metodo para gestionar una alerta.
+  en este caso vamos a hacer un metodo para gestionar una alerta.
   alertaSaludo(): void {
     alert (`hola, ${this.nombre}, alerta despachada desde un click de boton`);
   }*/

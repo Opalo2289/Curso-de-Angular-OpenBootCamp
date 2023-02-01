@@ -316,7 +316,7 @@
   <!--<h1>!Hola, {{ nombre }}¡</h1>-->
 
 
-  <!--input para trabajar con ngModel (para cuando quiera que lo que se modifique en el controlados osea en el ts, tambien se modifique en la vista osea en el html)-->
+  <!--input para trabajar con ngModel (para cuando quiera que lo que se modifique en el controlador osea en el ts, tambien se modifique en la vista osea en el html)-->
 <input type="text" placeholder="Nombre de usurario" [(ngModel)]="usuario"/> <!-- DOUBLE BAINING asocia un evento de cambio con una propiedad concreta 
   (el error tipico se da porque posiblemente hace falta importar algun componente: el error de los corchetes de osea el [(ngModel)] 
   soluciona importando el formModule dentro del app.module. y lo que esta dentro de comillas ctrl+espacio y si no, buscas el atributo en el app.components )-->
