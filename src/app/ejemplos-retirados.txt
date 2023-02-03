@@ -1,0 +1,76 @@
+EJEMPLO RETIRADO 1 (app.component.html)
+
+<div class="content" role="main">
+  <!--<h1>!Hola, {{ nombre }}¡</h1>-->
+
+
+  <!--input para trabajar con ngModel (para cuando quiera que lo que se modifique en el controlador osea en el ts, tambien se modifique en la vista osea en el html)-->
+<input type="text" placeholder="Nombre de usurario" [(ngModel)]="usuario"/> <!-- DOUBLE BAINING asocia un evento de cambio con una propiedad concreta 
+  (el error tipico se da porque posiblemente hace falta importar algun componente: el error de los corchetes de osea el [(ngModel)] 
+  soluciona importando el formModule dentro del app.module. y lo que esta dentro de comillas ctrl+espacio y si no, buscas el atributo en el app.components )-->
+  
+  <app-saludo [nombre]="usuario" (mensajeEmiter)="recibirMensajeDelHijo($event)"></app-saludo>
+  <!--<app-saludo (mensajeEmiter)="recibirMensajeDelHijo($event)"></app-saludo> aqui se pinta el components saludo.components.html [se utilizan parentecis para eventos, y comillas para atributos]
+  la explicacion del orden se encuentra en el vide OpenBootCamp en el min -21:04-->
+</div>
+
+-------------------------------------------------------------
+
+EJEMPLO RETIRADO #2 (contacto.service.ts)
+
+obtenerContactos(): IContacto[] {
+    return CONTACTOS; //Aqui de maneja de manera sincrona. nos devuelve un listado de contactos
+  }
+
+-------------------------------------------------------------
+EJEMPLO RETIRADO #3 (lista-contactos.component.ts)
+
+ngOnInit(): void {
+  //Obtener la lista de contactos que nos brinda el servicio
+
+  this.listaContactos = this.contactoService.obtenerContactos();
+  console.table(this.listaContactos);
+
+  /*
+  *Despues de esto ↑ hay que pintarlo usando el selector ↑ en el componente principal html
+  */
+}
+-------------------------------------------------------------
+EJEMPLO RETIRADO #4 (contacto.service.ts)
+ 
+obtenerContactoPorID(id: number): IContacto | undefined {
+
+    const contacto = CONTACTOS.find((contacto: IContacto) => contacto.id === id) //(contacto.id === id) es decir: en caso de que contacto.id conincida con id que recibimos por parametro entonces lo devolvemos
+
+    if(contacto) {
+      return contacto;
+    }else {
+      return;
+    }
+  }
+}
+-------------------------------------------------------------
+EJEMPLO RETIRADO #5 (contacto.service.ts)
+obtenerContactoPorID(id: number): Promise<IContacto> | undefined {
+
+    const contacto = CONTACTOS.find((contacto: IContacto) => contacto.id === id) //(contacto.id === id) es decir: en caso de que contacto.id conincida con id que recibimos por parametro entonces lo devolvemos
+
+    if(contacto) {
+      return Promise.resolve(contacto);
+    }else {
+      return;
+    }
+  }
+}
+}
+
+LO DE ARRIBA MODIFICA (lista-contactos.component.ts)
+
+obtenerContacto(id: number) {
+//console.log(`Obtener info del contacto ${id}`);
+this.contactoService.obtenerContactoPorID(id)
+?.then((contacto: IContacto) => this.contactoSeleccionado = contacto)
+.catch((error) => console.error(`Ha habido un error al recuperar la lista de contactos: ${error}`))
+.finally(() => console.log('peticion de lista de contactos por ID terminada'));;
+}
+ 

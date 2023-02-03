@@ -1,0 +1,22 @@
+<h1>!Hola {{ nombre }}¡</h1>
+<h3 [ngClass]="nombre == 'Anonimo' ? 'anonimo' : 'saludo'" id="usuario" [innerText]="nombre">
+
+    <!--ngClass => nos permite pasarle valores literales o propiedades del controlador (esto es renderizado condicional utilizando etiquetas)-->
+
+    <!--no indicamos nada en las estiquetas sino que el valor viene definido en la propiedad.
+    podemos acceder a todas las propiedad de elementos html y modificarlas con un valor que se encuentre en typescript
+    el innertext que es aquello que se establece dentro de las etiquetas-->
+</h3>
+
+<p [ngStyle]="{ color: 'orange'}"> <!--esto puede ser una variable del ts o tambien se puede injectar directamente aqui-->
+    hola que tal
+</p>
+
+<h5 [ngStyle]="myStyle"> <!--esta es la variable que viene del saludo.ts-->
+    hola, todo bien
+</h5>
+
+<button id="emit-alerta" (click)="enviarMensajeAlPadre()">enviar mensaje de saludo al compnente padre</button> <!--para emitir la alerta hay que hacer la logica del boton-->
+
+<!--aqui podemos hacer uso del componente ListaBasica que pertenece a ListModule-->
+<app-lista-basica></app-lista-basica>

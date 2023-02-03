@@ -1,0 +1,17 @@
+@input = informacion que va de padres a hijos 
+
+@output = informacion que va de hijos a padres a traves de la emision de un evento y la captura
+de ese evento por parte del padre a traves de un metodo
+
+CICLO DE VIDA: explicado en -19:00
+
+*ngOnChanges
+*ngOnInit
+ngAfterContentInit
+ngAfterContentCheked
+ngAfterViewInit
+ngAfterViewCheked
+ngAfterContentCheked
+ngAfterViewCheked
+*ngOnDestroy
+
