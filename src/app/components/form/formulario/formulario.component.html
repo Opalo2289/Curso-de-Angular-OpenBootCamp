@@ -1,0 +1,15 @@
+<!-- Formulario reactivo Basico -->
+
+<form [formGroup]="miFormulario">
+    <!-- previsualizacion de los valores del Formulario -->
+    <h2>Datos en Vivo del Formulario</h2>
+    <!-- usaremos un pipe de angular de tipo JSON para pasar el objeto a un JSON y mostrarlo -->
+    <p>{{ miFormulario.value | json }}</p>
+    <!-- campos del Formulario, usammos un componente Angular Material -->
+    <!--El formControlName debe coincidir con los valores por defecto del formulario-->
+    <input class="form-control" id="exampleInputEmail1" matImput placeholder="Nombre" formControlName="nombre">
+    <input class="form-control" id="exampleInputEmail1" matImput placeholder="Apellido" formControlName="apellidos">
+    <input class="form-control" id="exampleInputEmail1" matImput placeholder="Email" formControlName="email">
+    <input class="form-control" id="exampleInputEmail1" matImput placeholder="Telefono" formControlName="telefono">
+    <input class="form-control" id="exampleInputEmail1" matImput placeholder="Direccion" formControlName="direccion">  
+</form>

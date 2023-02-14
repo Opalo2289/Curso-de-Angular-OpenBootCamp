@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -11,6 +12,11 @@ import { ListaBasicaComponent } from './modules/lists/lista-basica/lista-basica.
 import { ListsModule } from './modules/lists/lists.module';
 import { ListaContactosComponent } from './components/lista-contactos/lista-contactos.component';
 import { LoginFormComponent } from './components/form/login-form/login-form.component';
+import { FormularioComponent } from './components/form/formulario/formulario.component';
+import { FormularioAnidadoComponent } from './components/form/formulario-anidado/formulario-anidado.component';
+import { FormularioArrayComponent } from './components/form/formulario-array/formulario-array.component';
+import { FormularioValidadoComponent } from './components/form/formulario-validado/formulario-validado.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -18,9 +24,14 @@ import { LoginFormComponent } from './components/form/login-form/login-form.comp
     SaludoComponent,
     ListaContactosComponent,
     LoginFormComponent,
+    FormularioComponent,
+    FormularioAnidadoComponent,
+    FormularioArrayComponent,
+    FormularioValidadoComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     /*Aqui importamos los modulos que se crean personalizados
     en este caso importamos List.module.ts.
@@ -29,7 +40,12 @@ import { LoginFormComponent } from './components/form/login-form/login-form.comp
     */
    ListsModule,
    // esto ↓ es para hacer peticiones http, se declara y se importa ↑ 
-   HttpClientModule
+   HttpClientModule,
+  //  importamos reactiveFormModule para trabajar con formularios reactivos
+  ReactiveFormsModule,
+  //Importamos modulos de Angular Material que usamos en los formulario
+  //MatFormFieldModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
