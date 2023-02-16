@@ -1,0 +1,55 @@
+<h1>ejemplo-PIPES nativos de Angular</h1>
+
+<!-- Fechas -->
+<h2>Pipes para fechas</h2>
+<p>Mi cumpleaños sin PIPE es : {{ dob }}</p>
+<p>Mi cumpleaños con PIPE DATE es: {{ dob | date }}</p>
+<p>Mi cumpleaños con PIPE DATE "dd/MM/yyyy" es: {{ dob | date: "dd/MM/yyyy" }}</p> <!--Esto es un PIPE formateado-->
+
+<p>Mi cumpleaños con PIPE DATE SHORT es: {{ dob | date: "shortDate" }}</p>
+<p>Mi cumpleaños con PIPE DATE FULL es: {{ dob | date: "fullDate" }}</p>
+
+<p>Mi cumpleaños con PIPE DATE SHORT/FULL es: {{ dob | date: dateFormat }}</p>
+<button (click)="cambiarFormato()">Cambiar formato a {{ !cambio ? 'short': 'full' }}</button>
+
+<!-- MAYUSCULA / MINUSCULA -->
+<p>Bienvenido, {{ nombre | uppercase }}</p>
+<p>Nombre de usuario: @{{ nombre | lowercase }}</p>
+
+
+<!-- Cambio o convinacion de PIPES de mayuscula a minuscula (debemos iniciar la variable arriba del constructor) -->
+<p>Mi cumpleaños con PIPE DATE SHORT/FULL MAYUSCULA es: {{ dob | date: dateFormat | uppercase }}</p>
+<p>Mi cumpleaños con PIPE DATE SHORT/FULL MINUSCULA es: {{ dob | date: dateFormat | lowercase }}</p>
+
+
+<!-- PIPE PERSONALIZADO (Multiplica) -->
+
+<p>Resultado: {{ 2 | multiplica: 10 }} puntos</p>
+
+<!-- PIPE PERSONALIZADO (calcularPuntuacion) -->
+<p>{{ jugador1 | calcularPuntuacion }}</p>
+<p>{{ jugador2 | calcularPuntuacion }}</p>
+
+
+<!-- PIPE de Decimales -->
+<p>PI (3 decimales){{numero_PI | number: '.3-3'}}</p> <!--5 decimales y queremos redondear a 5 -->
+<p>PI (5 decimales){{numero_PI | number: '.5-5'}}</p> 
+<p>PI (2 enteros y 8 decimales){{numero_PI | number: '2.8-8'}}</p>
+
+
+<!-- PIPE DE MONEDA (Currency) -->
+<p>Precio del carrito{{precioCarrito | currency: 'EUR'}}</p>
+<p>Precio del carrito{{precioCarrito | currency: 'USD'}}</p>
+<p>Precio del carrito{{precioCarrito | currency: 'EUR': true:'.2-3'}}</p> <!--pero quiero que no solo salga la moneda, ademas quiero ue tenga x decimales-->
+
+
+<!-- JSON PIPE -->
+
+<P>{{persona | json}}</P>
+
+<!-- PIPE DE PORSENTAJES -->
+<p>porcentaje de votos obtenido: {{ cantidad | percent:'2.2-2' }}</p>
+
+<!-- SLICE -->
+
+<p>Texto demaciado largo: {{ textoLargo | slice: 0:10}}....</p> <!--de la posicion 0 a la posicion 10-->KL

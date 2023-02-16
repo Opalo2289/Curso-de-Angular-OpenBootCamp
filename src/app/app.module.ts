@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -17,6 +17,14 @@ import { FormularioAnidadoComponent } from './components/form/formulario-anidado
 import { FormularioArrayComponent } from './components/form/formulario-array/formulario-array.component';
 import { FormularioValidadoComponent } from './components/form/formulario-validado/formulario-validado.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { EjemploPipesComponent } from './components/ejemplo-pipes/ejemplo-pipes.component';
+import { MultiplicaPipe } from './pipes/multiplica.pipe';
+import { CalcularPuntuacionPipe } from './pipes/calcular-puntuacion.pipe';
+//Locale para PIPES de aqui hay que ir a los provideer
+import { registerLocaleData } from '@angular/common';
+import  localeES  from '@angular/common/locales/es';
+//Para que no de error se coloca
+registerLocaleData(localeES); //Registramos el LOCALE_ID de 'es' para poder usarlo en los pipes
 
 @NgModule({
   declarations: [
@@ -28,6 +36,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormularioAnidadoComponent,
     FormularioArrayComponent,
     FormularioValidadoComponent,
+    EjemploPipesComponent,
+    MultiplicaPipe,
+    CalcularPuntuacionPipe,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +58,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   //MatFormFieldModule,
   
   ],
-  providers: [],
+  providers: [
+    //Registramos el locale ES para que los PIPES salgan en español
+    {
+      provide: LOCALE_ID, useValue: 'es'
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
